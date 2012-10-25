@@ -53,8 +53,10 @@
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
 	if (component == 0) {
-		NSInteger row = [pickerView selectedRowInComponent:1];
-		if (row == 0) return 32;
+		NSInteger row = 32;
+		if (pickerView.numberOfComponents > 1)
+			 [pickerView selectedRowInComponent:1];
+		if (row == 32) return row;
 		return [[_startOfYear dateMonthsAfter:(row - 1)] daysInCurrentMonth] + 1;
 	}
 	else if (component == 1) {
