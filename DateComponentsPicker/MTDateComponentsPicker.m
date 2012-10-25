@@ -115,7 +115,7 @@
 		NSInteger year = _maxYear - row + 1;
 		_startOfYear = [NSDate dateFromYear:year month:1 day:1];
 		[_dateComponents setYear:year];
-		[_pickerDelegate dateComponentsPicker:self pickedDateComponents:_dateComponents];
+		[_componentsDelegate dateComponentsPicker:self pickedDateComponents:_dateComponents];
 	}
 
 	[pickerView reloadComponent:0]; // reload month, number of days could change with month or if leap year.
