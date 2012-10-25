@@ -1,0 +1,11 @@
+
+PODS:
+- MTDates (0.6.1)
+
+DEPENDENCIES:
+- MTDates
+
+SPEC CHECKSUMS:
+  MTDates: 348df6b3183fd92a9c4c6db8f5ab1a1c5b0bdd9b
+
+COCOAPODS: 0.15.1
