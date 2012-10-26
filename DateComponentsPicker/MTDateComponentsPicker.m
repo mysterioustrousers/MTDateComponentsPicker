@@ -57,7 +57,7 @@
 			 [pickerView selectedRowInComponent:1];
 		if (row == 32) return row;
 		return [[_startOfYear dateMonthsAfter:(row - 1)] daysInCurrentMonth] + 1;
-	}
+		}
 	else if (component == 1) {
 		return 12 + 1;
 	}
@@ -104,19 +104,19 @@
 
 	if (component == 0) {
 		[_dateComponents setDay:row];
-		if (_onChange) _onChange();
+		if (_onChange) _onChange(_dateComponents);
 	}
 
 	else if (component == 1) {
 		[_dateComponents setMonth:row];
-		if (_onChange) _onChange();
+		if (_onChange) _onChange(_dateComponents);
 	}
 
 	else if (component == 2) {
 		NSInteger year = _maxYear - row + 1;
 		_startOfYear = [NSDate dateFromYear:year month:1 day:1];
 		[_dateComponents setYear:year];
-		if (_onChange) _onChange();
+		if (_onChange) _onChange(_dateComponents);
 	}
 
 	[pickerView reloadComponent:0]; // reload month, number of days could change with month or if leap year.

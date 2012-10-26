@@ -12,7 +12,7 @@
 @interface MTDateComponentsPicker : UIPickerView <UIPickerViewDataSource, UIPickerViewDelegate>
 
 @property (nonatomic, strong) NSDateComponents *dateComponents;
-@property (nonatomic, strong) void (^onChange)();
+@property (nonatomic, strong) void (^onChange)(NSDateComponents *selectedDateComponents);
 
 @property NSInteger minYear;
 @property NSInteger maxYear;
