@@ -8,20 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol MTDateComponentsPickerDelegate;
 
 @interface MTDateComponentsPicker : UIPickerView <UIPickerViewDataSource, UIPickerViewDelegate>
 
-@property (nonatomic, weak) id<MTDateComponentsPickerDelegate> componentsDelegate;
 @property (nonatomic, strong) NSDateComponents *dateComponents;
+@property (nonatomic, strong) void (^onChange)();
 
 @property NSInteger minYear;
 @property NSInteger maxYear;
 
-@end
-
-
-
-@protocol MTDateComponentsPickerDelegate <NSObject>
-- (void)dateComponentsPicker:(MTDateComponentsPicker *)picker pickedDateComponents:(NSDateComponents *)dateComponents;
 @end

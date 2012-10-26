@@ -42,7 +42,6 @@
 
 
 
-
 #pragma mark - Picker Data Source
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
@@ -105,19 +104,19 @@
 
 	if (component == 0) {
 		[_dateComponents setDay:row];
-		[_componentsDelegate dateComponentsPicker:self pickedDateComponents:_dateComponents];
+		if (_onChange) _onChange();
 	}
 
 	else if (component == 1) {
 		[_dateComponents setMonth:row];
-		[_componentsDelegate dateComponentsPicker:self pickedDateComponents:_dateComponents];
+		if (_onChange) _onChange();
 	}
 
 	else if (component == 2) {
 		NSInteger year = _maxYear - row + 1;
 		_startOfYear = [NSDate dateFromYear:year month:1 day:1];
 		[_dateComponents setYear:year];
-		[_componentsDelegate dateComponentsPicker:self pickedDateComponents:_dateComponents];
+		if (_onChange) _onChange();
 	}
 
 	[pickerView reloadComponent:0]; // reload month, number of days could change with month or if leap year.
