@@ -27,6 +27,11 @@
 	self.dataSource	= self;
 }
 
+- (void)didMoveToWindow
+{
+	if (!_dateComponents) _dateComponents = [[NSDateComponents alloc] init];
+}
+
 - (void)setDateComponents:(NSDateComponents *)dateComponents
 {
 	_dateComponents = dateComponents;
