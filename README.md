@@ -16,6 +16,8 @@ pod? => https://github.com/CocoaPods/CocoaPods/
 	#import <MTDateComponentsPicker.h>
 	
 	@interface YourClass <MTDateComponentsPickerDelegate>
+	// In this case, I just dragged a UIPicker on my view controller xib and gave it a class of MTDateComponentsPicker and connected this outlet.
+	@property (weak, nonatomic) IBOutlet MTDateComponentsPicker *picker;
 	@end
 	
 	
