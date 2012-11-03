@@ -24,12 +24,9 @@ pod? => https://github.com/CocoaPods/CocoaPods/
 	- (void)viewDidLoad
 	{
 		_dateComponentsPicker.dateComponents = [[NSDateComponents alloc] init];
+		_dateComponentsPicker.onChange = ^(NSDateComponents *pickedDateComponents){
+			NSLog(@"%@", pickedDateComponents);
+		};
 	}
-	
-	- (void)dateComponentsPicker:(MTDateComponentsPicker *)picker pickedDateComponents:(NSDateComponents *)dateComponents
-	{
-		
-	}
-	
 	
 	@end
