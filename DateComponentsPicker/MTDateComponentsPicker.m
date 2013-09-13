@@ -20,9 +20,9 @@
 
 - (void)awakeFromNib
 {
-	_startOfYear = [[NSDate date] startOfCurrentYear];
+	_startOfYear = [[NSDate date] mt_startOfCurrentYear];
 	_minYear = 1;
-	_maxYear = [_startOfYear year];
+	_maxYear = [_startOfYear mt_year];
 	self.delegate	= self;
 	self.dataSource	= self;
 }
@@ -61,7 +61,7 @@
 		if (pickerView.numberOfComponents > 1)
 			 [pickerView selectedRowInComponent:1];
 		if (row == 32) return row;
-		return [[_startOfYear dateMonthsAfter:(row - 1)] daysInCurrentMonth] + 1;
+		return [[_startOfYear mt_dateMonthsAfter:(row - 1)] mt_daysInCurrentMonth] + 1;
 		}
 	else if (component == 1) {
 		return 12 + 1;
@@ -86,7 +86,7 @@
 
 	else if (component == 1) {
 		if (row != 0)
-			string = [[_startOfYear dateMonthsAfter:(row - 1)] stringFromDateWithFullMonth];
+			string = [[_startOfYear mt_dateMonthsAfter:(row - 1)] mt_stringFromDateWithFullMonth];
 	}
 
 	else {
@@ -119,7 +119,7 @@
 
 	else if (component == 2) {
 		NSInteger year = _maxYear - row + 1;
-		_startOfYear = [NSDate dateFromYear:year month:1 day:1];
+		_startOfYear = [NSDate mt_dateFromYear:year month:1 day:1];
 		[_dateComponents setYear:year];
 		if (_onChange) _onChange(_dateComponents);
 	}
